@@ -11,18 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController()
 public class TestController {
+    private TestService  testService = new TestService();
 
     @LogToMongo
     @GetMapping("/get")
     public int getInt(){
         try{
-            throw new RuntimeException("test");
+            testService.test();
         }catch (RuntimeException e){
             LogUtil.logException(e);
-            throw e;
+//            throw e;
         }
 
-//        return 1;
+        return 1;
     }
 }
 
