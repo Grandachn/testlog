@@ -5,6 +5,8 @@ import com.granda.mogolog.LogUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 /**
  * @Author by guanda
  * @Date 2018/11/29 20:27
@@ -15,7 +17,7 @@ public class TestController {
 
     @LogToMongo
     @GetMapping("/get")
-    public int getInt(){
+    public int getInt() throws IOException {
         try{
             testService.test();
         }catch (RuntimeException e){
